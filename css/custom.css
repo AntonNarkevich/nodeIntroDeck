@@ -1,0 +1,28 @@
+.accent {
+	color: #80bd01;
+}
+
+.negative-accent {
+	color: #ff3e25;
+}
+
+.logo-illustration {
+	width: 400px;
+	float: right;
+}
+
+.no-decoration {
+	border: 0 !important;
+	background: none !important;
+	box-shadow: none !important;
+}
+
+p.total-packages {
+	margin-top: 30px;
+	text-align: left;
+}
+
+.galery img {
+	max-height: 200px;
+	background: white !important;
+}

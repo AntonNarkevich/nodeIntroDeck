@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Introduction to Node.js</title>
+
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<link rel="stylesheet" href="css/theme/default.css" id="theme">
+	<link rel="stylesheet" href="css/custom.css"/>
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	<script>
+		if (window.location.search.match(/print-pdf/gi)) {
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = 'css/print/pdf.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		}
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+
+		<section>
+			<h1>Introduction to <span class="accent">Node.js</span></h1>
+		</section>
+
+		<section>
+			<section>
+				<h2>What's it all about?</h2>
+
+				<img class="logo-illustration" src="img/nodejs.png" alt="Node.js logo"/>
+			</section>
+
+			<section>
+				<h3>Node.js is a platform for building <span class="accent">network</span> applications.</h3>
+
+				<aside class="notes">Node.js is a platform built on Chrome's JavaScript runtime for easily building
+					fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes
+					it lightweight and efficient, perfect for data-intensive real-time applications that run across
+					distributed devices.
+				</aside>
+			</section>
+
+			<section>
+				<h3>It's JavaScript!</h3>
+
+				<p>Do you <span class="negative-accent">hate</span> it?</p>
+			</section>
+
+			<section>
+				<h3>Then here's Douglas Crockford</h3>
+				<img src="img/crockfordRembo.jpg" alt="Duglas Crockford"/>
+			</section>
+
+			<section>
+				<h3>And another one</h3>
+				<img src="img/crocfordWell.jpg" alt="Write well"/>
+			</section>
+
+			<section>
+				<h3>It's only 173 pages!</h3>
+				<img src="img/goodpart.png" alt="Good parts"/>
+			</section>
+
+			<section>
+				<h3>Use <span class="accent">JSLint</span> or...</h3>
+
+				<img src="img/suicide.jpg" alt="Suicide"/>
+			</section>
+
+			<section>
+				<h3>Or at least</h3>
+
+				<img src="img/jshint.png" alt="JSHint"/>
+			</section>
+
+		</section>
+
+		<section>
+			<section>
+				<h2>So what is Node.js?</h2>
+
+				<img class="logo-illustration" src="img/nodejs-logo.png" alt="Node.js logo"/>
+			</section>
+
+			<section>
+				<h3>V8</h3>
+				<p>V8 is Google's open source JavaScript engine.</p>
+				<p>V8 is written in C++ and is used in Google Chrome.</p>
+
+				<p>V8 implements ECMAScript, 5th edition...</p>
+
+				<img class="logo-illustration" src="img/Chrome-V81.jpg" alt="V8"/>
+			</section>
+
+			<section>
+				<h3>Core</h3>
+				<p>It's written in C++ and totally open source.</p>
+				<p>Node.js core consists of 30 .cpp files.</p>
+			</section>
+
+			<section>
+				<h3>Modules</h3>
+				<p>Some default modules are written in JavaScript.</p>
+			</section>
+
+			<section>
+				<h3>From the box</h3>
+				<ul>
+					<li>HTTP and HTTP tools</li>
+					<li>Filesystem access</li>
+					<li>Cryptography</li>
+					<li>Child processes</li>
+					<li>All traditional JS features</li>
+					<li>Utilities etc</li>
+				</ul>
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h2>Why?</h2>
+				<img class="logo-illustration" src="img/why.jpg" alt="Why node.js?"/>
+			</section>
+
+			<section>
+				<h3>Stylish! Fashionable! Youth!</h3>
+				<img src="img/fashion.jpg" alt="Stylish!"/>
+			</section>
+
+			<section>
+				<h3>And simple!</h3>
+				<pre><code>
+var http = require('http');
+
+http.createServer(function (req, res) {
+	res.end('Hello World\n');
+}).listen(987);
+
+console.log('Server running at localhost:987');
+				</code></pre>
+			</section>
+
+			<section>
+				<h3>Pros</h3>
+
+				<ul>
+					<li>Speed and keeping the load<span class="accent">*</span></li>
+					<li>New direction in programming. Totally async</li>
+					<li>Full stack JavaScript</li>
+					<li>Huge active community</li>
+					<li>NPM as package system</li>
+					<li>Dynamic type system that's handy for web</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Cons</h3>
+
+				<ul>
+					<li>It's a new technology</li>
+					<li>Many people still don't know Duglas Crockford</li>
+					<li>Callback Hell</li>
+					<li>Requires thinking in a new way</li>
+				</ul>
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h2>New direction in programming</h2>
+
+				<img class="logo-illustration" src="img/joker-async.jpg" alt="Why so async?"/>
+			</section>
+
+			<section>
+				<h3>Why C is fast?</h3>
+			</section>
+
+			<section>
+				<h3>Node.js goes it's own way</h3>
+
+				<img src="img/async.png" alt="Async programming"/>
+			</section>
+
+			<section>
+				<h3>How it looks</h3>
+				<pre><code>
+var fs = require("fs");
+
+fs.readFile("foo.txt", "utf8", function(error, data) {
+	console.log(data);
+});
+				</code></pre>
+			</section>
+
+			<section>
+				<h3>Or with databases</h3>
+				<pre><code data-trim>
+var connection = require('mysql').createConnection({
+host: 'localhost',
+user: 'userName',
+password: 'secret',
+database: 'databaseName'
+}).connect();
+
+connection.queryRow('SELECT * FROM _Language where LanguageId=3',
+	function(err, row) {
+		console.log(data);
+	}
+);
+				</code></pre>
+			</section>
+
+			<section>
+				<h3>Event loop</h3>
+
+				<img src="img/eventLoop.png" alt="Event loop"/>
+			</section>
+
+			<section>
+				<h3>Event loop once again</h3>
+
+				<img src="img/eventLoop2.png" alt="Event loop"/>
+			</section>
+
+			<section>
+				<h3>Callback hell</h3>
+
+				<img src="img/callbackHell.png" alt="Callback hell"/>
+			</section>
+
+			<section>
+				<h3>Async flow patterns</h3>
+
+				<ul>
+					<li>Waterfall</li>
+					<li>Series</li>
+					<li>Parallel</li>
+					<li>etc</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Be happy with Async module</h3>
+
+				<pre><code>
+async.series([
+	function(callback){
+	// do some stuff ...
+	callback(null, 'one');
+	},
+	function(callback){
+	// do some more stuff ...
+	callback(null, 'two');
+	}
+],
+	// optional callback
+	function(err, results){
+		// results is now equal to ['one', 'two']
+});
+				</code></pre>
+			</section>
+
+			<section>
+				<h3>Parallel. Something more complex</h3>
+				<pre><code>
+async.parallel([
+	function(callback){
+		setTimeout(function(){
+			callback(null, 'one');
+		}, 200);
+	},
+	function(callback){
+		setTimeout(function(){
+			callback(null, 'two');
+		}, 100);
+	}],
+function(err, results){
+	// After all. The results array will equal ['one','two']
+});
+				</code></pre>
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h2><span class="accent">Node.js</span> Community</h2>
+
+				<img class="logo-illustration" src="img/notAlone.jpg" alt="You are not alone"/>
+			</section>
+
+			<section>
+				<h3>Node Package Manager</h3>
+
+				<img class="no-decoration" src="img/npm-logo.png" alt="Node Package Manager"/>
+			</section>
+
+			<section>
+				<h3>Growth</h3>
+
+				<img src="img/growth.png" alt="Package Growth"/>
+			</section>
+
+			<section>
+				<h3>Statistics</h3>
+
+				<table>
+					<tbody>
+						<tr>
+							<td>4 020 707</td>
+							<td> downloads in the last day</td>
+						</tr>
+						<tr>
+							<td>52 461 819</td>
+							<td> downloads in the last week</td>
+						</tr>
+						<tr>
+							<td class="accent">197 149 300</td>
+							<td> downloads in the last month</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<p class="total-packages">
+					<span>Total Packages:</span>
+					<span class="accent">69 629</span>
+				</p>
+			</section>
+
+			<!--<section>-->
+					<!--<h3>Most Depended Upon</h3>-->
+					<!--<ul>-->
+						<!--<li>underscore</li>-->
+						<!--<li>async</li>-->
+						<!--<li>request</li>-->
+						<!--<li>commander</li>-->
+						<!--<li>express</li>-->
+						<!--<li>lodash</li>-->
+						<!--<li>optimist</li>-->
+						<!--<li>coffee-script</li>-->
+					<!--</ul>-->
+				<!--</td>-->
+			<!--</section>-->
+
+			<section>
+				<h3>NPM Map</h3>
+				<img src="img/dependencies.png" alt="Dependencies map"/>
+			</section>
+
+			<!--<section>-->
+				<!--<h3>No conflicts</h3>-->
+				<!--<pre><code>-->
+<!--quux@1.0.0-->
+	<!--|-->
+	<!--+-- bar@1.0.0-->
+	<!--|   |-->
+	<!--|   `-- foo@1.0.0 \-->
+	<!--|                  \-->
+	<!--`-- baz@1.0.0        &gt; Conflict?-->
+	<!--|                  /-->
+	<!--`-- foo@2.0.0     /-->
+				<!--</code></pre>-->
+			<!--</section>-->
+
+		</section>
+
+		<section>
+			<section>
+				<h2>There is all you need</h2>
+
+				<img class="logo-illustration" src="img/packages.gif" alt="Packages"/>
+			</section>
+
+			<section>
+				<h3>Data access</h3>
+
+				<div class="galery">
+					<img src="img/postgresql.png" alt="Postgresql"/>
+					<img src="img/redis.png" alt="Redis"/>
+					<img src="img/mongo-db-logo.png" alt="Mongo DB"/>
+					<img src="img/mssql.png" alt="MSSQL"/>
+				</div>
+			</section>
+			
+			<section>
+				<h3>JavaScript</h3>
+				
+				<div class="galery">
+					<img src="img/underscore.png" alt="Underscore"/>
+					<img src="img/coffee.jpg" alt="Coffee Script"/>
+				</div>
+			</section>
+
+			<section>
+				<h3>Testing</h3>
+
+				<div class="galery">
+					<img src="img/casper.jpg" alt="Casper.js"/>
+					<img src="img/mocha.png" alt="Mocha"/>
+					<img src="img/jasmine.png" alt="Jasmine"/>
+				</div>
+			</section>
+
+			<section>
+				<h3>Styling</h3>
+
+				<div class="galery">
+					<img src="img/saas-logo.png" alt="SASS"/>
+					<img src="img/stylus.png" alt="Stylus"/>
+					<img src="img/css-comb-logo.png" alt="CSSComb"/>
+					<img src="img/less-logo.png" alt="Less"/>
+				</div>
+			</section>
+
+			<section>
+				<h3>Markup</h3>
+
+				<div class="galery">
+					<img src="img/handlebars_logo.png" alt="Handlebars"/>
+					<img src="img/jade-logo.png" alt="Jade"/>
+					<img src="img/smarty.jpg" alt="Smarty"/>
+					<img src="img/ejs-logo-b300.png" alt="EJS"/>
+				</div>
+			</section>
+
+			<section>
+				<h3>nodejsmodules.org</h3>
+
+				<img src="img/nodejsmodules.png" alt="Node js modules"/>
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h2>You need <span class="accent">Node</span> anyway</h2>
+
+				<img class="logo-illustration" src="img/grunt.jpg" alt="Grunt.js"/>
+			</section>
+
+			<section>
+				<h3>Potentially it can everything</h3>
+
+				<img src="img/grunt-features.png" alt="Grunt.js features"/>
+			</section>
+
+			<section>
+				<h3>Features</h3>
+
+				<ul>
+					<li>Minification</li>
+					<li>Linting</li>
+					<li>Precompiling</li>
+					<li>Zipping</li>
+					<li>Uploading/Deployment</li>
+					<li>Copying/Deleting/Cleaning</li>
+					<li>Embedding images</li>
+					<li>etc</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>It's handy</h3>
+
+				<img src="img/gruntConsole.png" alt="Grunt.js console"/>
+			</section>
+
+			<section>
+				<h3>And easy to set up</h3>
+				<pre><code>
+jshint: {
+	// define the files to lint
+	files: ['gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+	// configure JSHint (documented at http://www.jshint.com/docs/)
+	options: {
+		// more options here if you want to override JSHint defaults
+		globals: {
+			jQuery: true,
+			console: true,
+			module: true
+		}
+	}
+}
+				</code></pre>
+			</section>
+
+			<section>
+				<h3>Very easy</h3>
+				<pre><code>
+qunit: {
+files: ['test/**/*.html']
+},
+				</code></pre>
+			</section>
+
+			<section>
+				<h3>Everyone likes grunt</h3>
+
+				<img src="img/whoLikesGrunt.png" alt="Grunt.js users"/>
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h2>Want some more <span class="accent">Noding</span>?</h2>
+
+				<img class="logo-illustration no-decoration" src="img/heavyartillery.gif" alt="Heavy artillery"/>
+			</section>
+
+			<section>
+				<h3>Child processes</h3>
+
+				<pre><code>
+var cp = require('child_process');
+
+var n = cp.fork(__dirname + '/sub.js');
+
+n.on('message', function(m) {
+	console.log('PARENT got message:', m);
+});
+
+n.send({ hello: 'world' });
+				</code></pre>
+			</section>
+
+			<section>
+				<h3>sub.js content</h3>
+
+				<pre><code>
+process.on('message', function(m) {
+	console.log('CHILD got message:', m);
+});
+
+process.send({ foo: 'bar' });
+				</code></pre>
+			</section>
+
+			<section>
+				<h3>Clusters</h3>
+
+				<pre><code>
+var cluster = require('cluster');
+var numCPUs = require('os').cpus().length;
+var http = requier('http');
+
+if (cluster.isMaster) { // Fork workers.
+	for (var i = 0; i < numCPUs; i++) {
+	cluster.fork();
+} else {
+	http.createServer(function(req, res) {
+		res.writeHead(200);
+		res.end("hello world\n");
+	}).listen(8000);
+}
+				</code></pre>
+			</section>
+
+			<section>
+				<h3>socket.io</h3>
+
+				<pre><code>
+var io = require('socket.io').listen(80);
+
+io.sockets.on('connection', function (socket) {
+		socket.emit('news', { hello: 'world' });
+		socket.on('my other event', function (data) {
+		console.log(data);
+	});
+});
+				</code></pre>
+			</section>
+
+			<section>
+				<h3>Client side</h3>
+
+				<pre><code>
+<script src="/socket.io/socket.io.js"></script>
+&lt;script&gt;
+	var socket = io.connect('http://localhost');
+	socket.on('news', function (data) {
+		console.log(data);
+		socket.emit('my other event', { my: 'data' });
+	});
+&lt;/script&gt;
+				</code></pre>
+			</section>
+
+			<section>
+				<h3>Node.js rock-star<span class="accent">*</span></h3>
+
+				<img src="img/express.png" alt="Express.js"/>
+			</section>
+
+			<section>
+				<h3>It goes with</h3>
+
+				<ul>
+					<li>Routing</li>
+					<li>Views</li>
+					<li>Sessions</li>
+					<li>Cookies</li>
+					<li>Caching</li>
+					<li>Logging</li>
+					<li>Error handling</li>
+					<li>Who knows what else</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Just like Asp but a little better</h3>
+
+				<pre><code>
+app.get('/hello.txt', function(req, res){
+	res.send('Hello World');
+});
+				</code></pre>
+			</section>
+
+			<section>
+				<h3>Here is a view</h3>
+
+				<pre><code>
+&lt;ul&gt;
+	&lt;% for(var i=0; i&lt;supplies.length; i++) {%&gt;
+	&lt;li&gt;&lt;%= supplies[i] %&gt;&lt;/li&gt;
+	&lt;% } %&gt;
+&lt;/ul&gt;
+				</code></pre>
+			</section>
+		</section>
+
+		<section>
+			<section>
+				<h2>What to read to be a pro</h2>
+
+				<img class="logo-illustration" src="img/books.jpg" alt="Books"/>
+			</section>
+
+			<section>
+				<img src="img/inaction.jpg" alt="Node.js in action"/>
+			</section>
+
+			<section>
+				<img src="img/learningNode.jpg" alt="Learning Node.js"/>
+			</section>
+		</section>
+
+		<section>
+			<img src="img/thankYou.jpeg" alt="Thank you!"/>
+		</section>
+
+	</div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+	// Full list of configuration options available here:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls: true,
+		progress: true,
+		history: true,
+		center: true,
+
+		theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+		transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+		// Parallax scrolling
+		// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+		// parallaxBackgroundSize: '2100px 900px',
+
+		// Optional libraries used to extend on reveal.js
+		dependencies: [
+			{ src: 'lib/js/classList.js', condition: function () {
+				return !document.body.classList;
+			} },
+			{ src: 'plugin/markdown/marked.js', condition: function () {
+				return !!document.querySelector('[data-markdown]');
+			} },
+			{ src: 'plugin/markdown/markdown.js', condition: function () {
+				return !!document.querySelector('[data-markdown]');
+			} },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+				hljs.configure({
+					tabReplace: '  ',
+					languages:['js','html', 'css']
+				});
+				hljs.initHighlightingOnLoad();
+			} },
+			{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
+				return !!document.body.classList;
+			} },
+			{ src: 'plugin/notes/notes.js', async: true, condition: function () {
+				return !!document.body.classList;
+			} }
+		]
+	});
+
+</script>
+
+</body>
+</html>
